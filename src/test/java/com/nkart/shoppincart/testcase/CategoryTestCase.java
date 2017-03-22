@@ -33,9 +33,9 @@ public class CategoryTestCase {
 	@Test
 	public void createCategoryTestCase()
 	{
-		category.setId("143");
-		category.setName("Shoes");
-		category.setDescription("This is Men Category ");
+		category.setId("79");
+		category.setName("Ssssss");
+		category.setDescription("This is ss Category ");
 		
 	boolean flag = categoryDAO.createCategory(category);
 		
@@ -48,7 +48,7 @@ public class CategoryTestCase {
 		
 	}
 	
-	@Test
+	/*@Test
 	public void updateCategoryTestCase()
 	{
 		category.setId("141");
@@ -61,25 +61,7 @@ public class CategoryTestCase {
 		System.out.println("update success");
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	/*@Test
-	public void getAllCategoriesTestCase()
-	{
-	int recordsFromDAO=	categoryDAO.getAllCategories().size();
-		assertEquals("getAllCategoriesTestCase",9, recordsFromDAO);
-		
-		
-		
-	}*/
-	
-	/*@Test
+	@Test
 	public void deleteCategoryTestCase()
 	{
 		//category.setId("3");
@@ -88,7 +70,25 @@ public class CategoryTestCase {
 		
 		//Assert.assertEquals("deleteCategoryTestCase" ,true,flag);
 		assertEquals("deleteCategoryTestCase", true, flag);;
+	}*/
+	
+	
+	
+	
+	
+	
+	
+	@Test
+	public void getAllCategoriesTestCase()
+	{
+	int recordsFromDAO=	categoryDAO.getAllCategories().size();
+		assertEquals("getAllCategoriesTestCase",5, recordsFromDAO);
+		
+		
+		
 	}
+	
+	
 	
 	/*
 	@Test

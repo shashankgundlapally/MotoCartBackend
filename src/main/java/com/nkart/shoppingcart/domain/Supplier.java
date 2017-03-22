@@ -1,3 +1,4 @@
+
 package com.nkart.shoppingcart.domain;
 
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ public class Supplier
 	@Id
 	private String id;
 	private String name,address;
+	
 	public String getId() {
 		return id;
 	}

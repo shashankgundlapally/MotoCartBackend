@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Entity					//it will assume that a table exists with the name Category
@@ -18,9 +19,13 @@ public class Category
 	@Id
 	private String id;
 	@Column(name="name")  //if the field name and property name is diff
+	@NotEmpty
 	private String name;
-	
+	@NotEmpty
 	private String description;
+	
+	
+	
 
 	public String getId() {
 		return id;

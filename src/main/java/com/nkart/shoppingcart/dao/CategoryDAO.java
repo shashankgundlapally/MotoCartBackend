@@ -25,13 +25,13 @@ public interface CategoryDAO
 	//delete category
 	public boolean deleteCategory(Category category);
 	
-	/*
+	
 	//delete category by name
 	public boolean deleteCategoryByName(String name);
 	
 	//delete category by id
 	public boolean deleteCategoryById(String id);
-	*/
+	
 	
 	//get category by id
 	public Category getCategoryById(String id);
@@ -40,5 +40,11 @@ public interface CategoryDAO
 	
 	//get category by name
 	public Category getCategoryByName(String name);
-
+	
+	
+	/*public boolean save(Category category);
+	public boolean delete(String id);
+	public Category get(String id);
+	public List<Category> list();
+*/
 }

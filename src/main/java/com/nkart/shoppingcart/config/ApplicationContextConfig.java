@@ -1,6 +1,5 @@
 package com.nkart.shoppingcart.config;
 
-
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -16,39 +15,36 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.nkart.shoppingcart.domain.Cart;
 import com.nkart.shoppingcart.domain.Category;
 import com.nkart.shoppingcart.domain.Product;
 import com.nkart.shoppingcart.domain.Supplier;
 import com.nkart.shoppingcart.domain.User;
+
 @Configuration
 @ComponentScan("com.nkart.shoppingcart")
 
 @EnableTransactionManagement
 
-
-
-public class ApplicationContextConfig 
-{
+public class ApplicationContextConfig {
 	@Bean(name = "dataSource")
 	public DataSource getH2DataSource() {
 
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-			
+
 		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
 
 		dataSource.setDriverClassName("org.h2.Driver");
 
 		dataSource.setUsername("sa");
 		dataSource.setPassword("");
-		
-		
+
 		return dataSource;
 	}
 
-	
 	private Properties getHibernateProperties() {
 		Properties properties = new Properties();
-		
+
 		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.hbm2ddl.auto", "update");
@@ -62,11 +58,12 @@ public class ApplicationContextConfig
 
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
-		
-		
-		sessionBuilder.addAnnotatedClasses(Category.class,User.class);
-		sessionBuilder.addAnnotatedClasses(Supplier.class,Product.class);
-		
+
+		/* sessionBuilder.scanPackages("com.nkart.shoppingcart.domain"); or */
+
+		sessionBuilder.addAnnotatedClasses(Category.class, User.class);
+		sessionBuilder.addAnnotatedClasses(Supplier.class, Product.class,Cart.class);
+		System.out.println("Session Factory: " + sessionBuilder.buildSessionFactory());
 		return sessionBuilder.buildSessionFactory();
 	}
 
@@ -74,7 +71,7 @@ public class ApplicationContextConfig
 	@Bean(name = "transactionManager")
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
-
+		System.out.println("Tracnstion: " + transactionManager);
 		return transactionManager;
 	}
 

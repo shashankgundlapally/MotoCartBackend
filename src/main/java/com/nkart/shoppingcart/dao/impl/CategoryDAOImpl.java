@@ -4,8 +4,13 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -55,8 +60,23 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 		}
 	}
-
 	public boolean updateCategory(Category category) {
+		Category category1 = null;
+		try {
+			if (category.getId() != null)
+				category1 = getCategoryById(category.getId());
+			else if (category.getName() != null)
+				category1 = getCategoryByName(category.getName());
+			getSession().update(category1);
+
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+	/*public boolean updateCategory(Category category) {
 
 		try {
 			getSession().update(category);
@@ -67,7 +87,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			return false;
 		}
 
-	}
+	}*/
 
 	public boolean deleteCategory(Category category) {
 		Category category1 = null;
@@ -132,5 +152,68 @@ public class CategoryDAOImpl implements CategoryDAO {
 				.list().get(0);
 
 	}
-
 }
+
+	/*@Autowired
+	SessionFactory sessionFactory;
+	public static final Logger log = LoggerFactory.getLogger(CategoryDAOImpl.class);
+    public CategoryDAOImpl(SessionFactory  sessionFactory) {
+    this.sessionFactory=sessionFactory;
+}
+
+	@Transactional
+	public boolean save(Category category) {
+		try {
+			log.info("category start:");
+			sessionFactory.getCurrentSession().saveOrUpdate(category);
+			log.info("category saved:");
+			return true;
+			
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+
+	
+	@Transactional
+	public boolean delete(String id) {
+		Category CategoryToDelete = new Category();
+		CategoryToDelete.setId(id);
+		 sessionFactory.getCurrentSession().delete(CategoryToDelete);
+		 return true;
+	}
+	
+		
+		@Transactional
+		public Category get(String id) {
+			String hql = "from"+" Category"+" where id=" + id;
+		
+			@SuppressWarnings("rawtypes")
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			
+			@SuppressWarnings({ "unchecked", "deprecation" })
+			List<Category> listCategory = (List<Category>) query.list();
+			
+			if (listCategory != null && !listCategory.isEmpty()) {
+				return listCategory.get(0);
+			}
+			
+			return null;
+		}
+
+	
+	@Transactional
+	public List<Category> list() {
+		@SuppressWarnings({ "unchecked", "deprecation" })
+		List<Category> listCategory = (List<Category>) sessionFactory.getCurrentSession()
+				.createCriteria(Category.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+
+		return listCategory;
+	}
+
+	
+}*/

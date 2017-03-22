@@ -71,19 +71,21 @@ public void validateCredentialsTestCase()
 }
 
 @Test
-public void getAllUsersTestCase()
-{
-	int noofusers= userDAO.getAllUsers().size();
-	assertEquals("getAllUsersTestCase", 3, noofusers);
-}*/
-
-@Test
 public void deleteUserTestCase()
 {
 	user.setId("11");
 	boolean flag=userDAO.deleteUser(user);
 	assertEquals("deleteUserTestCase", true, flag);
+}*/
+
+@Test
+public void getAllUsersTestCase()
+{
+	int noofusers= userDAO.getAllUsers().size();
+	assertEquals("getAllUsersTestCase", 3, noofusers);
 }
+
+
 }
 
 

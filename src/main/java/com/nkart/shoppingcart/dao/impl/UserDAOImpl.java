@@ -71,16 +71,16 @@ public class UserDAOImpl implements UserDAO {
 		return (User) sessionFactory.getCurrentSession().createQuery("from User where name='" + name + "'").list().get(0);
 	}
 
-	public boolean validate(String id, String password)
+	public User validate(String id, String password)
 	{
 		// select * from User where id='' and password=''
 		String hql="from User where id='"+id+"' and password ='"+password+"'";
 		if(sessionFactory.getCurrentSession().createQuery(hql).uniqueResult()==null)
 			{
-			return false;
+			return null;
 			}
 		else
-			return true;
+			return (User) sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
 	}
 
 }

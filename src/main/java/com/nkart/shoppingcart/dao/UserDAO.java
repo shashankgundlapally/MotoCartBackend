@@ -18,6 +18,6 @@ public interface UserDAO
 	
 	public User getUserByName(String name);
 	
-	public boolean validate(String id,String password);
+	public User validate(String id,String password);
 	
 }

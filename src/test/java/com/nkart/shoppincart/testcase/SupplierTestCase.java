@@ -35,7 +35,7 @@ public class SupplierTestCase {
 		assertEquals("getAllSuppliersTestCase", 4, sup);
 	}
 
-	@Test
+	/*@Test
 	public void createSupplierTestCase() {
 		supplier.setId("06");
 		supplier.setName("Sangeetha");
@@ -62,6 +62,6 @@ public class SupplierTestCase {
 
 		boolean flag = supplierDAO.deleteSupplier(supplier);
 		assertEquals("deleteSupplierTestCase", true, flag);
-	}
+	}*/
 
 }

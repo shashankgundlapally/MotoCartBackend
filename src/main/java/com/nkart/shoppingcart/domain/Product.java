@@ -14,7 +14,12 @@ public class Product
 	@Id
 	private String id;
 	private String name,description;
+	private int price;
+	
+	
 	private String category_id;
+	
+	
 	private String supplier_id;
 	public String getId() {
 		return id;
@@ -45,6 +50,12 @@ public class Product
 	}
 	public void setSupplier_id(String supplier_id) {
 		this.supplier_id = supplier_id;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 }

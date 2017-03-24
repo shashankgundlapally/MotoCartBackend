@@ -1,6 +1,7 @@
 package com.nkart.shoppingcart.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,15 +13,16 @@ import org.springframework.stereotype.Component;
 public class User 
 {
 	@Id
-	private String id;
+	@GeneratedValue
+	private int id;
 	
 	private String name,password,email,contact,role;
-	
-	
-	public String getId() {
+																			
+																			
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

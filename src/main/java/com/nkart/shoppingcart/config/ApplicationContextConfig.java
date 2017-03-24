@@ -15,6 +15,16 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.nkart.shoppingcart.dao.CartDAO;
+import com.nkart.shoppingcart.dao.CategoryDAO;
+import com.nkart.shoppingcart.dao.ProductDAO;
+import com.nkart.shoppingcart.dao.SupplierDAO;
+import com.nkart.shoppingcart.dao.UserDAO;
+import com.nkart.shoppingcart.dao.impl.CartDAOImpl;
+import com.nkart.shoppingcart.dao.impl.CategoryDAOImpl;
+import com.nkart.shoppingcart.dao.impl.ProductDAOImpl;
+import com.nkart.shoppingcart.dao.impl.SupplierDAOImpl;
+import com.nkart.shoppingcart.dao.impl.UserDAOImpl;
 import com.nkart.shoppingcart.domain.Cart;
 import com.nkart.shoppingcart.domain.Category;
 import com.nkart.shoppingcart.domain.Product;
@@ -38,7 +48,7 @@ public class ApplicationContextConfig {
 
 		dataSource.setUsername("sa");
 		dataSource.setPassword("");
-
+         System.out.println("data base is connected......................!");
 		return dataSource;
 	}
 
@@ -58,11 +68,11 @@ public class ApplicationContextConfig {
 
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
-
-		/* sessionBuilder.scanPackages("com.nkart.shoppingcart.domain"); or */
-
-		sessionBuilder.addAnnotatedClasses(Category.class, User.class);
-		sessionBuilder.addAnnotatedClasses(Supplier.class, Product.class,Cart.class);
+		sessionBuilder.addAnnotatedClasses(Category.class);
+		sessionBuilder.addAnnotatedClasses(User.class);
+		sessionBuilder.addAnnotatedClasses(Supplier.class);
+		sessionBuilder.addAnnotatedClasses(Product.class);
+		sessionBuilder.addAnnotatedClasses(Cart.class);
 		System.out.println("Session Factory: " + sessionBuilder.buildSessionFactory());
 		return sessionBuilder.buildSessionFactory();
 	}
@@ -74,5 +84,36 @@ public class ApplicationContextConfig {
 		System.out.println("Tracnstion: " + transactionManager);
 		return transactionManager;
 	}
+	
+	@Autowired
+	@Bean(name = "productDAO")
+	public ProductDAO getProductDao(SessionFactory sessionFactory) {
+			return new ProductDAOImpl(sessionFactory);
+			
+	}
+	
+	
+	@Autowired
+	@Bean(name = "supplierDAO")
+	public SupplierDAO getSupplierDao(SessionFactory sessionFactory) {
+			return new SupplierDAOImpl(sessionFactory);
+	}
+
+	@Autowired
+	@Bean(name = "categoryDAO")
+	public CategoryDAO getCategoryDao(SessionFactory sessionFactory){
+		return  new CategoryDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "userDAO")
+	public UserDAO getUserDao(SessionFactory sessionFactory){
+		return  new UserDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "cartDAO")
+	public CartDAO getCartDao(SessionFactory sessionFactory){
+		return  new CartDAOImpl(sessionFactory);
+	}
+	
 
 }

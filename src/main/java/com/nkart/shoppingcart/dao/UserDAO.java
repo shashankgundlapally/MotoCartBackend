@@ -14,10 +14,10 @@ public interface UserDAO
 	
 	public boolean deleteUser(User user);
 	
-	public User getUserById(String id);
+	public User getUserById(int id);
 	
 	public User getUserByName(String name);
 	
-	public User validate(String id,String password);
+	public User validate(String name,String password);
 	
 }

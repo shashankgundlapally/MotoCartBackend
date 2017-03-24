@@ -20,13 +20,13 @@ public class UserDAOImpl implements UserDAO {
 	public UserDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-
+	@Transactional
 	@SuppressWarnings("unchecked")
 	public List<User> getAllUsers() {
 		return sessionFactory.getCurrentSession().createQuery("from User").list();
 
 	}
-
+	@Transactional
 	public boolean createUser(User user) {
 		try {
 			sessionFactory.getCurrentSession().save(user);
@@ -37,7 +37,7 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}
 	}
-
+	@Transactional
 	public boolean updateUser(User user) {
 		try {
 			sessionFactory.getCurrentSession().update(user);
@@ -47,30 +47,25 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}
 	}
-
+	@Transactional
 	public boolean deleteUser(User user) {
 		try {
-			User user1 = null;
-			if (user.getId() != null)
-				user1 = getUserById(user.getId());
-			else if (user.getName() != null)
-				user1 = getUserByName(user.getName());
-			sessionFactory.getCurrentSession().delete(user1);
+			sessionFactory.getCurrentSession().delete(user);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
-
-	public User getUserById(String id) {
+	@Transactional
+	public User getUserById(int id) {
 		return (User) sessionFactory.getCurrentSession().createQuery("from User where id='" + id + "'").uniqueResult();
 	}
-
+	@Transactional
 	public User getUserByName(String name) {
 		return (User) sessionFactory.getCurrentSession().createQuery("from User where name='" + name + "'").list().get(0);
 	}
-
+	@Transactional
 	public User validate(String id, String password)
 	{
 		// select * from User where id='' and password=''

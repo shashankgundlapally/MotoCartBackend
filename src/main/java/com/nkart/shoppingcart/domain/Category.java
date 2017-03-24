@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Entity					//it will assume that a table exists with the name Category
-@Table(name="Category") // if the class name and table name are different
+@Table // if the class name and table name are different
 @Component				//if we want to create the instance of class Category-category
 public class Category 
 {

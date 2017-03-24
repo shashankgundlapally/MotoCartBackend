@@ -29,15 +29,15 @@ public static void initialize()
 	userDAO= (UserDAO) context.getBean("userDAO");
 }
 
-/*@Test
+@Test
 public void createUserTestCase()
 {
-	user.setId("11");
-	user.setName("mahesh");
-	user.setPassword("mahesh");
-	user.setEmail("mahesh@gmail.com");
+	
+	user.setName("sai");
+	user.setPassword("sai");
+	user.setEmail("sai@gmail.com");
 	user.setContact("154548");
-	user.setRole("admin");
+	user.setRole("user");
 	
 	boolean flag= userDAO.createUser(user);
 	assertEquals("createUserTestCase", true, flag);
@@ -78,13 +78,13 @@ public void deleteUserTestCase()
 	assertEquals("deleteUserTestCase", true, flag);
 }*/
 
-@Test
+/*@Test
 public void getAllUsersTestCase()
 {
 	int noofusers= userDAO.getAllUsers().size();
-	assertEquals("getAllUsersTestCase", 3, noofusers);
+	assertEquals("getAllUsersTestCase", 1, noofusers);
 }
-
+*/
 
 }
 

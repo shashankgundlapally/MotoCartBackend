@@ -63,11 +63,13 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public boolean updateCategory(Category category) {
 		Category category1 = null;
 		try {
-			if (category.getId() != null)
-				category1 = getCategoryById(category.getId());
-			else if (category.getName() != null)
-				category1 = getCategoryByName(category.getName());
-			getSession().update(category1);
+//			if (category.getId() != null)
+//				category1 = getCategoryById(category.getId());
+//			else if (category.getName() != null)
+//				category1 = getCategoryByName(category.getName());
+			
+			System.err.println("Getting the Category: "+category);
+			getSession().update(category);
 
 			return true;
 		} catch (Exception e) {

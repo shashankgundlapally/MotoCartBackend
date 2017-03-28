@@ -15,8 +15,8 @@ public interface SupplierDAO
 	
 	public boolean updateSupplier(Supplier supplier);
 	
-	public Supplier getSupplierById(String id);
+	public Supplier getSupplierById(int id);
 	
-	public Supplier getSupplierByName(String name);
+	public Supplier getSupplierByName(int name);
 	
 }

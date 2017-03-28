@@ -33,7 +33,7 @@ public class CategoryTestCase {
 	@Test
 	public void createCategoryTestCase()
 	{
-		category.setId("79");
+		category.setId(77);
 		category.setName("Ssssss");
 		category.setDescription("This is ss Category ");
 		
@@ -48,10 +48,10 @@ public class CategoryTestCase {
 		
 	}
 	
-	/*@Test
+	@Test
 	public void updateCategoryTestCase()
 	{
-		category.setId("141");
+		category.setId(141);
 		category.setName("Normal Tv");
 		category.setDescription("This is Television Category");
 		
@@ -64,13 +64,13 @@ public class CategoryTestCase {
 	@Test
 	public void deleteCategoryTestCase()
 	{
-		//category.setId("3");
+		//category.setId(3);
 		category.setName("vvsfs");
 		boolean flag = categoryDAO.deleteCategory(category);
 		
 		//Assert.assertEquals("deleteCategoryTestCase" ,true,flag);
 		assertEquals("deleteCategoryTestCase", true, flag);;
-	}*/
+	}
 	
 	
 	

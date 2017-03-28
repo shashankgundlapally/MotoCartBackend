@@ -4,13 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -61,7 +56,6 @@ public class CategoryDAOImpl implements CategoryDAO {
 		}
 	}
 	public boolean updateCategory(Category category) {
-		Category category1 = null;
 		try {
 //			if (category.getId() != null)
 //				category1 = getCategoryById(category.getId());
@@ -94,11 +88,11 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public boolean deleteCategory(Category category) {
 		Category category1 = null;
 		try {
-			if (category.getId() != null)
+			/*if (category.getId() != null)
 				category1 = getCategoryById(category.getId());
 			else if (category.getName() != null)
-				category1 = getCategoryByName(category.getName());
-			getSession().delete(category1);
+				category1 = getCategoryByName(category.getName());*/
+			getSession().delete(category);
 
 			return true;
 		} catch (Exception e) {
@@ -121,7 +115,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	}
 
-	public boolean deleteCategoryById(String id) {
+	public boolean deleteCategoryById(int id) {
 
 		try {
 			getSession().delete(getCategoryById(id));
@@ -136,7 +130,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	// this method will return category based on category id./ if the category
 	// does not exist it will return null
-	public Category getCategoryById(String id) {
+	public Category getCategoryById(int id) {
 		// select * from category where id=...
 		// this syntax works because id is primary key or
 		// return (Category)
@@ -181,7 +175,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	
 	@Transactional
-	public boolean delete(String id) {
+	public boolean delete(int id) {
 		Category CategoryToDelete = new Category();
 		CategoryToDelete.setId(id);
 		 sessionFactory.getCurrentSession().delete(CategoryToDelete);
@@ -190,7 +184,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	
 		
 		@Transactional
-		public Category get(String id) {
+		public Category get(int id) {
 			String hql = "from"+" Category"+" where id=" + id;
 		
 			@SuppressWarnings("rawtypes")

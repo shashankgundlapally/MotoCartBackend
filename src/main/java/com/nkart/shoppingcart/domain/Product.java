@@ -2,19 +2,23 @@ package com.nkart.shoppingcart.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table
 @Component
 public class Product {
 	@Id
-	private String id;
+	@GeneratedValue
+	private int id;
 	private String name, description;
 	private int price;
 
@@ -46,12 +50,15 @@ public class Product {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "supplier_id", nullable = false, updatable = false, insertable = false)
 	private Supplier supplier;
+	
+	@Transient
+	private MultipartFile image;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

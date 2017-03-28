@@ -31,10 +31,10 @@ public static void initialize()
 	productDAO = (ProductDAO) context.getBean("productDAO");
 }
 
-/*@Test
+@Test
 public void createProductTestCase()
 {
-	product.setId("30");
+	product.setId(30);
 	product.setName("Nokia");
 	product.setDescription("black");
 	product.setCategory_id("7");
@@ -47,7 +47,7 @@ public void createProductTestCase()
 @Test
 public void updateProductTestCase()
 {
-	product.setId("30");
+	product.setId(30);
 	product.setName("Nokia 3310");
 	product.setDescription("white");
 	product.setCategory_id("7");
@@ -59,10 +59,10 @@ public void updateProductTestCase()
 @Test
 public void deleteProductTestCase()
 {
-	product.setId("30");
+	product.setId(30);
 	boolean flag=productDAO.deleteProduct(product);
 	assertEquals("deleteProductTestCase", true, flag);
-}*/
+}
 
 @Test
 public void getAllProductTestCase()

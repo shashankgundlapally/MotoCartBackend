@@ -56,12 +56,11 @@ public class ProductDAOImpl implements ProductDAO
 
 	public boolean deleteProduct(Product product) {
 		try {
-			Product product1 = null;
-			if (product.getId() != null)
+			/*if (product.getId() != null)
 				product1  = getProductById(product.getId());
 			else if (product.getName() != null)
-				product1 = getProductByName(product.getName());
-			sessionFactory.getCurrentSession().delete(product1);
+				product1 = getProductByName(product.getName());*/
+			sessionFactory.getCurrentSession().delete(product);
 			return true;
 			}
 		catch (Exception e)
@@ -72,11 +71,11 @@ public class ProductDAOImpl implements ProductDAO
 		}
 	}
 
-	public Product getProductById(String id) {
+	public Product getProductById(int id) {
 		return (Product) sessionFactory.getCurrentSession().createQuery("from Product where id='"+id+"'").uniqueResult();
 	}
 
-	public Product getProductByName(String name) {
+	public Product getProductByName(int name) {
 		return (Product) sessionFactory.getCurrentSession().createQuery("from Product where name='"+name+"'").list().get(0);
 	}
 

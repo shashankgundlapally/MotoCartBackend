@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,7 +22,8 @@ public class Category
 	//generate getter/setter methods
 	
 	@Id
-	private String id;
+	@GeneratedValue
+	private int id;
 	@Column(name="name")  //if the field name and property name is diff
 	@NotEmpty
 	private String name;
@@ -32,11 +34,11 @@ public class Category
 	@OneToMany(mappedBy="category",fetch=FetchType.EAGER)
 	private Set<Product> products;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

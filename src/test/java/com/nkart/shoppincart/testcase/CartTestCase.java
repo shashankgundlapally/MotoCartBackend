@@ -1,6 +1,6 @@
-/*package com.nkart.shoppincart.testcase;
+package com.nkart.shoppincart.testcase;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.nkart.shoppingcart.dao.CartDAO;
-import com.nkart.shoppingcart.dao.CategoryDAO;
 import com.nkart.shoppingcart.domain.Cart;
-import com.nkart.shoppingcart.domain.Category;
 
 public class CartTestCase 
 {
@@ -43,7 +41,7 @@ public class CartTestCase
 		
 		cart.setUserID("");
 		
-	boolean flag = cartDAO.createCategory(cart);
+	boolean flag = cartDAO.saveCart(cart);
 		
 		System.out.println("Done");
 		
@@ -55,4 +53,3 @@ public class CartTestCase
 	}
 
 }
-*/

@@ -14,9 +14,9 @@ public interface ProductDAO
 	
 	public boolean deleteProduct(Product product);
 	
-	public Product getProductById(String id);
+	public Product getProductById(int id);
 	
-	public Product getProductByName(String name);
+	public Product getProductByName(int name);
 	
 	
 	

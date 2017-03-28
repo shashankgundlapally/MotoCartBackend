@@ -15,9 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Cart 
 {
-private static final long serialVersionUID = 1L;
-	
-	@Id
+@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	

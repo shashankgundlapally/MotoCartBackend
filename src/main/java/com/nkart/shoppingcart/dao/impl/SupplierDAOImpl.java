@@ -44,13 +44,12 @@ public class SupplierDAOImpl implements SupplierDAO
 	public boolean deleteSupplier(Supplier supplier) 
 	{
 				
-		Supplier supplier1 = null;
 		try{
-			if(supplier.getId() !=null)
+			/*if(supplier.getId() !=null)
 				supplier1 = getSupplierById(supplier.getId());
 			else if (supplier.getName() !=null)
-				supplier1 = getSupplierByName(supplier.getName());
-			sessionFactory.getCurrentSession().delete(supplier1);
+				supplier1 = getSupplierByName(supplier.getName());*/
+			sessionFactory.getCurrentSession().delete(supplier);
 			return true;
 			}
 		catch(Exception e)
@@ -72,12 +71,12 @@ public class SupplierDAOImpl implements SupplierDAO
 			}
 	}
 
-	public Supplier getSupplierById(String id) 
+	public Supplier getSupplierById(int id) 
 	{
 	return (Supplier) sessionFactory.getCurrentSession().createQuery("from Supplier where id='"+id+"'").uniqueResult();	
 	}
 
-	public Supplier getSupplierByName(String name) 
+	public Supplier getSupplierByName(int name) 
 	{
 		
 	return	(Supplier) sessionFactory.getCurrentSession().createQuery("from Supplier where name='"+name+"'").list().get(0);

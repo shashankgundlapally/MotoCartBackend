@@ -1,4 +1,4 @@
-package com.nkart.shoppingcart.config;
+package com.niit.shoppingcart.config;
 
 import java.util.Properties;
 
@@ -15,21 +15,21 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.nkart.shoppingcart.dao.CartDAO;
-import com.nkart.shoppingcart.dao.CategoryDAO;
-import com.nkart.shoppingcart.dao.ProductDAO;
-import com.nkart.shoppingcart.dao.SupplierDAO;
-import com.nkart.shoppingcart.dao.UserDAO;
-import com.nkart.shoppingcart.dao.impl.CartDAOImpl;
-import com.nkart.shoppingcart.dao.impl.CategoryDAOImpl;
-import com.nkart.shoppingcart.dao.impl.ProductDAOImpl;
-import com.nkart.shoppingcart.dao.impl.SupplierDAOImpl;
-import com.nkart.shoppingcart.dao.impl.UserDAOImpl;
-import com.nkart.shoppingcart.domain.Cart;
-import com.nkart.shoppingcart.domain.Category;
-import com.nkart.shoppingcart.domain.Product;
-import com.nkart.shoppingcart.domain.Supplier;
-import com.nkart.shoppingcart.domain.User;
+import com.niit.shoppingcart.dao.CartDAO;
+import com.niit.shoppingcart.dao.CategoryDAO;
+import com.niit.shoppingcart.dao.ProductDAO;
+import com.niit.shoppingcart.dao.SupplierDAO;
+import com.niit.shoppingcart.dao.UserDAO;
+import com.niit.shoppingcart.dao.impl.CartDAOImpl;
+import com.niit.shoppingcart.dao.impl.CategoryDAOImpl;
+import com.niit.shoppingcart.dao.impl.ProductDAOImpl;
+import com.niit.shoppingcart.dao.impl.SupplierDAOImpl;
+import com.niit.shoppingcart.dao.impl.UserDAOImpl;
+import com.niit.shoppingcart.domain.Cart;
+import com.niit.shoppingcart.domain.Category;
+import com.niit.shoppingcart.domain.Product;
+import com.niit.shoppingcart.domain.Supplier;
+import com.niit.shoppingcart.domain.User;
 
 @Configuration
 @ComponentScan("com.nkart.shoppingcart")
@@ -44,7 +44,7 @@ public class ApplicationContextConfig {
 		dataSource.setDriverClassName("org.h2.Driver");
 		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
 		dataSource.setUsername("sa");
-		dataSource.setPassword("");
+		dataSource.setPassword("sa");
          System.out.println("data base is connected......................!");
 		return dataSource;
 	}

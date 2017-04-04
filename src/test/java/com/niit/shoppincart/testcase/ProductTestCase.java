@@ -1,4 +1,4 @@
-package com.nkart.shoppincart.testcase;
+package com.niit.shoppincart.testcase;
 
 import static org.junit.Assert.*;
 
@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.nkart.shoppingcart.dao.ProductDAO;
-import com.nkart.shoppingcart.domain.Product;
+import com.niit.shoppingcart.dao.ProductDAO;
+import com.niit.shoppingcart.domain.Product;
 
 public class ProductTestCase 
 {
@@ -24,14 +24,14 @@ public static void initialize()
 {
 	@SuppressWarnings("resource")
 	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-	context.scan("com.nkart");
+	context.scan("com.niit");
 	context.refresh();
 	
 	product = (Product) context.getBean("product");
 	productDAO = (ProductDAO) context.getBean("productDAO");
 }
 
-@Test
+/*@Test
 public void createProductTestCase()
 {
 	product.setId(30);
@@ -69,5 +69,5 @@ public void getAllProductTestCase()
 {
 	int noofpro=productDAO.getAllProducts().size();
 	assertEquals("getAllProductsTestCase", 1, noofpro);
-}
+}*/
 }

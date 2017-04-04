@@ -1,4 +1,4 @@
-package com.nkart.shoppincart.testcase;
+package com.niit.shoppincart.testcase;
 
 import static org.junit.Assert.*;
 
@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.nkart.shoppingcart.dao.UserDAO;
-import com.nkart.shoppingcart.domain.User;
+import com.niit.shoppingcart.dao.UserDAO;
+import com.niit.shoppingcart.domain.User;
 
 public class UserTestCase
 {
@@ -22,13 +22,13 @@ public static void initialize()
 {
 	@SuppressWarnings("resource")
 	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-	context.scan("com.nkart");
+	context.scan("com.niit");
 	context.refresh();
 	
 	user =(User) context.getBean("user");
 	userDAO= (UserDAO) context.getBean("userDAO");
 }
-
+/*
 @Test
 public void createUserTestCase()
 {
@@ -44,7 +44,7 @@ public void createUserTestCase()
 	
 }
 
-/*@Test
+@Test
 public void updateUserTestCase()
 {
 		user.setId("02");
@@ -76,16 +76,16 @@ public void deleteUserTestCase()
 	user.setId("11");
 	boolean flag=userDAO.deleteUser(user);
 	assertEquals("deleteUserTestCase", true, flag);
-}*/
+}
 
-/*@Test
+@Test
 public void getAllUsersTestCase()
 {
 	int noofusers= userDAO.getAllUsers().size();
 	assertEquals("getAllUsersTestCase", 1, noofusers);
 }
-*/
 
+*/
 }
 
 

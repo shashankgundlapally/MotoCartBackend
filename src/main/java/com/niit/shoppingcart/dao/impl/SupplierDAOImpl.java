@@ -1,4 +1,4 @@
-package com.nkart.shoppingcart.dao.impl;
+package com.niit.shoppingcart.dao.impl;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import com.nkart.shoppingcart.dao.SupplierDAO;
-import com.nkart.shoppingcart.domain.Supplier;
+import com.niit.shoppingcart.dao.SupplierDAO;
+import com.niit.shoppingcart.domain.Supplier;
 
 
 @Repository("supplierDAO")

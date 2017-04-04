@@ -1,8 +1,8 @@
-package com.nkart.shoppingcart.dao;
+package com.niit.shoppingcart.dao;
 
 import java.util.List;
 
-import com.nkart.shoppingcart.domain.Supplier;
+import com.niit.shoppingcart.domain.Supplier;
 
 public interface SupplierDAO
 {

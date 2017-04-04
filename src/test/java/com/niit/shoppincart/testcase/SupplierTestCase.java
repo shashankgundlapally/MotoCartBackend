@@ -1,4 +1,4 @@
-package com.nkart.shoppincart.testcase;
+package com.niit.shoppincart.testcase;
 
 import static org.junit.Assert.*;
 
@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.nkart.shoppingcart.dao.SupplierDAO;
-import com.nkart.shoppingcart.domain.Supplier;
+import com.niit.shoppingcart.dao.SupplierDAO;
+import com.niit.shoppingcart.domain.Supplier;
 
 public class SupplierTestCase {
 	@Autowired
@@ -21,7 +21,7 @@ public class SupplierTestCase {
 	public static void initialize() {
 		@SuppressWarnings("resource")
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-		context.scan("com.nkart");
+		context.scan("com.niit");
 		context.refresh();
 
 		supplier = (Supplier) context.getBean("supplier");
@@ -29,7 +29,7 @@ public class SupplierTestCase {
 
 	}
 
-	@Test
+	/*@Test
 	public void getAllSuppliersTestCase() {
 		int sup = supplierDAO.getAllSuppliers().size();
 		assertEquals("getAllSuppliersTestCase", 4, sup);
@@ -62,6 +62,6 @@ public class SupplierTestCase {
 
 		boolean flag = supplierDAO.deleteSupplier(supplier);
 		assertEquals("deleteSupplierTestCase", true, flag);
-	}
+	}*/
 
 }

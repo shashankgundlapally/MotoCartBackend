@@ -1,4 +1,4 @@
-package com.nkart.shoppingcart.domain;
+package com.niit.shoppingcart.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -53,6 +53,14 @@ public class Product {
 	
 	@Transient
 	private MultipartFile image;
+
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 
 	public int getId() {
 		return id;

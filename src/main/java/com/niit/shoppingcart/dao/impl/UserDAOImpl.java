@@ -1,4 +1,4 @@
-package com.nkart.shoppingcart.dao.impl;
+package com.niit.shoppingcart.dao.impl;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.nkart.shoppingcart.dao.UserDAO;
-import com.nkart.shoppingcart.domain.User;
+import com.niit.shoppingcart.dao.UserDAO;
+import com.niit.shoppingcart.domain.User;
 
 @Transactional
 @Repository("userDAO")
@@ -48,7 +48,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 	@Transactional
-	public boolean deleteUser(User user) {
+	public boolean deleteUser(User user) { 
 		try {
 			sessionFactory.getCurrentSession().delete(user);
 			return true;

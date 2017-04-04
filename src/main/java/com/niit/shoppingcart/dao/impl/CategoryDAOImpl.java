@@ -1,4 +1,4 @@
-package com.nkart.shoppingcart.dao.impl;
+package com.niit.shoppingcart.dao.impl;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.nkart.shoppingcart.dao.CategoryDAO;
-import com.nkart.shoppingcart.domain.Category;
+import com.niit.shoppingcart.dao.CategoryDAO;
+import com.niit.shoppingcart.domain.Category;
 
 @Transactional
 @Repository("categoryDAO")
@@ -86,7 +86,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}*/
 
 	public boolean deleteCategory(Category category) {
-		Category category1 = null;
+		
 		try {
 			/*if (category.getId() != null)
 				category1 = getCategoryById(category.getId());

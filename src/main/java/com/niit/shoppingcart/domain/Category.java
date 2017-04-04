@@ -1,4 +1,4 @@
-package com.nkart.shoppingcart.domain;
+package com.niit.shoppingcart.domain;
 
 import java.util.Set;
 

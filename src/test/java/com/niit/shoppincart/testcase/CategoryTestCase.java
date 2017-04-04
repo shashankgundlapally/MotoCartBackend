@@ -1,4 +1,4 @@
-package com.nkart.shoppincart.testcase;
+package com.niit.shoppincart.testcase;
 
 import org.junit.BeforeClass;
 import static org.junit.Assert.*;
@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.nkart.shoppingcart.dao.CategoryDAO;
-import com.nkart.shoppingcart.domain.Category;
+import com.niit.shoppingcart.dao.CategoryDAO;
+import com.niit.shoppingcart.domain.Category;
 
 public class CategoryTestCase {
 
@@ -20,7 +20,7 @@ public class CategoryTestCase {
 	{
 		@SuppressWarnings("resource")
 		AnnotationConfigApplicationContext context =new AnnotationConfigApplicationContext();
-		context.scan("com.nkart");
+		context.scan("com.niit");
 		context.refresh();
 		
 
@@ -30,7 +30,7 @@ public class CategoryTestCase {
 		
 	}
 	
-	@Test
+	/*@Test
 	public void createCategoryTestCase()
 	{
 		category.setId(77);
@@ -90,7 +90,7 @@ public class CategoryTestCase {
 	
 	
 	
-	/*
+	
 	@Test
 	public void getCategoryByIdTestCase()
 	{
@@ -116,9 +116,9 @@ public class CategoryTestCase {
 		boolean flag = categoryDAO.deleteCategoryById("57");
 		
 		assertEquals("deleteCategoryByIdTestCase" ,true,flag);
-	}*/
+	}
 	
-	
+	*/
 
 }
 

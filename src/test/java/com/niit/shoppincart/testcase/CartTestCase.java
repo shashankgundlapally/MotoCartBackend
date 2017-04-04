@@ -1,4 +1,4 @@
-package com.nkart.shoppincart.testcase;
+package com.niit.shoppincart.testcase;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.nkart.shoppingcart.dao.CartDAO;
-import com.nkart.shoppingcart.domain.Cart;
+import com.niit.shoppingcart.dao.CartDAO;
+import com.niit.shoppingcart.domain.Cart;
 
 public class CartTestCase 
 {
@@ -24,7 +24,7 @@ public class CartTestCase
 	{
 		@SuppressWarnings("resource")
 		AnnotationConfigApplicationContext context =new AnnotationConfigApplicationContext();
-		context.scan("com.nkart");
+		context.scan("com.niit");
 		context.refresh();
 		
 
@@ -32,7 +32,7 @@ public class CartTestCase
 		cartDAO = (CartDAO) context.getBean("cartDAO");
 				
 	}
-	@Test
+	/*@Test
 	public void createCartTestCase()
 	{
 		cart.setProductName("");
@@ -50,6 +50,6 @@ public class CartTestCase
 		 assertEquals("createCategoryTestCase", true, flag);
 		
 		
-	}
+	}*/
 
 }

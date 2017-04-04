@@ -1,4 +1,4 @@
-package com.nkart.shoppingcart.dao.impl;
+package com.niit.shoppingcart.dao.impl;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.nkart.shoppingcart.dao.ProductDAO;
-import com.nkart.shoppingcart.domain.Product;
+import com.niit.shoppingcart.dao.ProductDAO;
+import com.niit.shoppingcart.domain.Product;
 @Transactional
 @Repository("productDAO")
 public class ProductDAOImpl implements ProductDAO 

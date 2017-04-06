@@ -18,6 +18,11 @@ public interface ProductDAO
 	
 	public Product getProductByName(int name);
 	
+	public List<Product> getproduct(int id);
+
+	public List<Product> navproduct(int id);
+
+	
 	
 	
 }
